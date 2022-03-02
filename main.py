@@ -2,7 +2,7 @@ import discord
 import os
 import random
 import sys
-from randsongs import getRandSong
+from randsongs import getRandSong, songCrazyMashup
 
 print(sys.version)
 print(sys.version_info)
@@ -110,7 +110,7 @@ async def on_message(message):
   
   # prefix commands
   if message.content.lower().startswith(p + "randsong"):
-    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=getRandSong()+randTip, color=discord.Color.orange())
+    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(3, 10))+randTip, color=discord.Color.orange())
     await message.channel.send(embed=embed)
   if message.content.lower().startswith(p + "songlist") or message.content.lower().startswith(p + "sl"):
     await message.channel.send("[list of songs]")
@@ -130,6 +130,7 @@ async def on_message(message):
   elif message.content.lower().startswith(p + 'help'):
     helpMessage = "see how many servers this bot is in: `{}servers` or `{}guilds`".format(p, p)
     helpMessage += "\nsettings: `{}settings`".format(p)
+    helpMessage += "\nrandom song!!: `{}randsong`".format(p)
     embed = discord.Embed(title="__**Help**__", url="https://tinyurl.com/youlovethisgamedontyou", description=helpMessage+randTip, color=discord.Color.orange())
     await message.channel.send(embed=embed)
   
