@@ -6,3 +6,17 @@ randsongs.append("SOPHIASOPHIASOPHIASOPHIASOPHIASOPHIASOPHIASOPHIASOPHIASOPHIASO
 
 def getRandSong():
   return random.choice(randsongs)
+
+def songCrazyMashup(song, num):
+  for i in range(num):
+    randStart1 = random.randrange(0,len(song)/3)
+    randEnd1 = random.randrange(randStart1,len(song)/3)
+    randStart2 = random.randrange(len(song)/3,len(song)*2/3)
+    randEnd2 = random.randrange(randStart2,len(song)*2/3)
+    randStart3 = random.randrange(len(song)*2/3, len(song))
+    randEnd3 = random.randrange(randStart3,len(song))
+    song = song[:randStart1] + song[randEnd1:] + song[randStart1:randEnd1]
+    song = song[randStart2:randEnd2] + song[:randStart2] + song[randEnd2:]
+    lastRand = random.randrange(0, len(song))
+    song = song[:lastRand] + song[randStart3:randEnd3] + song[lastRand:]
+  return song
