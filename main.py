@@ -110,12 +110,15 @@ async def on_message(message):
   
   # prefix commands
   if message.content.lower().startswith(p + "randsong"):
-    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(3, 10))+randTip, color=discord.Color.orange())
+    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(10, 30))+randTip, color=discord.Color.orange())
     await message.channel.send(embed=embed)
+  
   if message.content.lower().startswith(p + "songlist") or message.content.lower().startswith(p + "sl"):
     await message.channel.send("[list of songs]")
+  
   if message.content.lower().startswith(p + "newsong") or message.content.lower().startswith(p + "ns"):
     await message.channel.send("new song created")
+  
   # info
   elif message.content.lower().startswith(p + 'info'):
     infoMessage = "Bars24K was created by thisnoaskac#1732 as a cool tool to create song lyrics with! :)"
