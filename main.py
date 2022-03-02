@@ -2,7 +2,7 @@ import discord
 import os
 import random
 import sys
-from randsongs import getRandSong, songCrazyMashup
+from randsongs import getRandSong, songCrazyMashup, getSong
 
 print(sys.version)
 print(sys.version_info)
@@ -110,7 +110,12 @@ async def on_message(message):
   
   # prefix commands
   if message.content.lower().startswith(p + "randsong") or message.content.lower().startswith(p + "rs"):
-    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(30, 60))+randTip, color=discord.Color.orange())
+    songMsg = songCrazyMashup(getRandSong(), random.randrange(30, 60))
+    # if message.author.id == 666149048532860938:
+    #   songMsg = songCrazyMashup(getSong(0), random.randrange(30, 60))
+    if message.author.id == 398686833153933313:
+      songMsg = songCrazyMashup(getSong(1), random.randrange(30, 60))
+    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songMsg+randTip, color=discord.Color.orange())
     await message.channel.send(embed=embed)
   
   if message.content.lower().startswith(p + "songlist") or message.content.lower().startswith(p + "sl"):
