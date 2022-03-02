@@ -109,7 +109,7 @@ async def on_message(message):
         await message.reply(createCaseVariation("don't phoogkœn rep1y 2 me bruh"))
   
   # prefix commands
-  if message.content.lower().startswith(p + "randsong"):
+  if message.content.lower().startswith(p + "randsong") or message.content.lower().startswith(p + "rs"):
     embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(30, 60))+randTip, color=discord.Color.orange())
     await message.channel.send(embed=embed)
   
