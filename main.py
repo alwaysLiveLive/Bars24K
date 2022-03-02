@@ -110,7 +110,7 @@ async def on_message(message):
   
   # prefix commands
   if message.content.lower().startswith(p + "randsong"):
-    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(10, 30))+randTip, color=discord.Color.orange())
+    embed = discord.Embed(title="__**Here's some random bars:**__", url="https://tinyurl.com/youlovethisgamedontyou", description=songCrazyMashup(getRandSong(), random.randrange(30, 60))+randTip, color=discord.Color.orange())
     await message.channel.send(embed=embed)
   
   if message.content.lower().startswith(p + "songlist") or message.content.lower().startswith(p + "sl"):
