@@ -110,7 +110,7 @@ async def on_message(message):
   
   # prefix commands
   if message.content.lower().startswith(p + "randsong") or message.content.lower().startswith(p + "rs"):
-    songMsg = songCrazyMashup(getRandSong(), random.randrange(30, 60))
+    songMsg = songCrazyMashup(getSong(0), random.randrange(30, 60))
     # if message.author.id == 666149048532860938:
     #   songMsg = songCrazyMashup(getSong(0), random.randrange(30, 60))
     if message.author.id == 398686833153933313:
